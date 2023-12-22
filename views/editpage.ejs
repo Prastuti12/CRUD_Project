@@ -1,0 +1,52 @@
+<%- include ("layout/header")%>
+
+    <div class="product-section py-5">
+      <div class="col-md-12 text-center">
+        
+      </div>
+      <div class="container bg-light py-2 px-2 rounded">
+        <h1 class="text-center">Edit Items</h1>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th class="text-center" scope="col">Action</th>
+              </tr>
+            </thead>
+            <% if (allitems!="") { %>
+                <tbody>
+                 <% allitems.forEach((element,index) => { %>
+                       <tr>
+                      <th scope="row"><%= index + 1 %></th>
+                      <td><%= element.title %></td>
+                      <td><%= element.price %></td>
+                      <td class="text-center" >
+                        <a href="/edititem/<%= element._id %> " class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+
+                      </td>
+                    </tr>
+                <% }); %>
+                  </tbody>
+                <%  }else{ %>
+                  <tbody>
+                    <tr>
+                      <td class="text-center" colspan="12"><b >Please Add allitems From Add Page </b> </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center" colspan="12"><a href="/add" class="btn btn-primary">Add Product</a> </td>
+                    </tr>
+                  </tbody>
+                  <% } %>
+       
+          </table>
+
+      </div>
+    </div>
+
+    <script>
+
+    </script>
+        <!-- Footer -->
+        <%- include ("layout/footer")%>

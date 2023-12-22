@@ -1,0 +1,38 @@
+<%- include ("layout/header.ejs")%>
+
+<section>
+    <div class="container my-4 ">
+        <h1 class="text-center bg-light py-2 rounded ">All products are listed here</h1>
+    </div>
+    <div class="container my-5">
+        <% if (allitems!="") { %>
+          <div class="row">
+              <% allitems.forEach(element => { %>
+                <div class="col-md-3">
+                    <div class="card-box">
+                        <div class="wrapper">
+                          <div class="banner-image"> </div>
+                          <h1> <%= element.title %></h1>
+                          <h3>&#8377; <%= element.price %> </h3>
+                         </div>
+                         <div class="button-wrapper"> 
+                           <a href="/addcart/<%= element._id %>" class="btn fill">Add to Cart</a>
+                         </div>
+                        </div>
+                    </div>
+              <% }); %>
+          </div>
+        <%  }else{ %>
+          <div class="col-md-12 mt-5 text-center">
+            <h4 class="text-center mt-5">Please add product from add page</h4>
+            <a href="/add" class="btn btn-primary ">Add Product</a>
+          </div>
+        <% } %>
+    
+     
+    </div>
+
+
+</section>
+
+<%- include ("layout/footer.ejs")%>
